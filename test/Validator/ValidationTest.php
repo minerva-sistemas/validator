@@ -4,6 +4,7 @@ namespace ValidatorTest;
 
 use Validator\Field;
 use Validator\Rules\Email;
+use Validator\Rules\MaxLength;
 use Validator\Rules\MinLength;
 use Validator\Validator;
 use Validator\Validation;
@@ -76,8 +77,34 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    public function testMaxLengthValidator()
+    {
+        // Instanciamento da classe validadora
+        $validator = new Validator();
 
+        // Regra de validação para nome
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('nome','Nathan Cambiriba do Nascimento'));
+            $v->getRules()->add(new MaxLength(10));
+        });
 
+        // Regra de validação para nome
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('nome','Nathan Cambiriba do Nascimento'));
+            $v->getRules()->add(new MaxLength(10));
+        });
 
+        // Regra de validação para nome
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('nome','Nathan Cambiriba do Nascimento'));
+            $v->getRules()->add(new MaxLength(100));
+        });
+
+        // Executa a validação dos dados
+        $validator->execute();
+
+        // Verifica se foi gerado um erro
+        $this->assertEquals(2,$validator->getErrors()->count());
+    }
 
 }
