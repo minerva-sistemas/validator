@@ -7,7 +7,7 @@ use Validator\Rules\RuleInterface;
 
 /**
  * Class Validator
- * @author  Lucas A. de Araújo <lucas@minervasistemas.com.br>
+ * @author  Lucas A. de AraÃºjo <lucas@minervasistemas.com.br>
  * @package Validator
  */
 class Validator
@@ -23,7 +23,7 @@ class Validator
     private $errors;
 
     /**
-     * Construtor da biblioteca de validação.
+     * Construtor da biblioteca de validaÃ§Ã£o.
      */
     public function __construct()
     {
@@ -32,7 +32,7 @@ class Validator
     }
 
     /**
-     * Retorna a lista de validações.
+     * Retorna a lista de validaÃ§Ãµes.
      * @return ValidationList
      */
     public function getValidations()

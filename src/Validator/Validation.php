@@ -6,7 +6,7 @@ use Collections\ArrayList;
 
 /**
  * Class Validation
- * @author  Lucas A. de Araújo <lucas@minervasistemas.com.br>
+ * @author  Lucas A. de AraÃºjo <lucas@minervasistemas.com.br>
  * @package Validator
  */
 class Validation

@@ -6,13 +6,13 @@ use Collections\ArrayList;
 
 /**
  * Class ValidationList
- * @author  Lucas A. de Araújo lucas@minervasistemas.com.br>
+ * @author  Lucas A. de AraÃºjo lucas@minervasistemas.com.br>
  * @package Validator
  */
 class ValidationList extends ArrayList
 {
     /**
-     * Adiciona uma validação.
+     * Adiciona uma validaÃ§Ã£o.
      * @param mixed $item
      * @return $this|\Collections\VectorInterface|void
      */

@@ -5,7 +5,7 @@ use Validator\Exception\ValidationException;
 
 /**
  * Class MinLength
- * @author  Lucas A. de Araújo <lucas@painapp.com.br>
+ * @author  Lucas A. de AraÃºjo <lucas@painapp.com.br>
  * @package Validator\Rules
  */
 class MinLength implements RuleInterface
@@ -14,7 +14,7 @@ class MinLength implements RuleInterface
     private $data;
 
     /**
-     * Construtor da regra de validação.
+     * Construtor da regra de validaÃ§Ã£o.
      * @param $minLength
      */
     public function __construct($minLength)
@@ -57,7 +57,7 @@ class MinLength implements RuleInterface
     public function execute()
     {
         if(strlen($this->getData()) < $this->getMinLength()) {
-            throw new ValidationException("O tamanho mínimo permitido é de {$this->minLength} caracteres.");
+            throw new ValidationException("O tamanho mÃ­nimo permitido Ã© de {$this->minLength} caracteres.");
         }
     }
 }
