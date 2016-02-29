@@ -3,6 +3,7 @@
 namespace ValidatorTest;
 
 use Validator\Field;
+use Validator\Rules\DateFormat;
 use Validator\Rules\Email;
 use Validator\Rules\MinLength;
 use Validator\Validator;
@@ -51,6 +52,9 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
     }
 
 
+    /**
+     * Testa a validação de Email.
+     */
     public function testEmailValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
@@ -73,6 +77,45 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
         // Verifica se foi gerado um erro
         $this->assertEquals(1, $validator->getErrors()->count());
+
+    }
+
+
+    /**
+     * Testa a validação de Data.
+     */
+    public function testDateValidation(){
+        // Instanciamento da classe validadora
+        $validator = new Validator();
+
+        // Regra de validação para formato da data
+        //Simulação com acerto
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('data', '1994-08-23'));
+            $v->getRules()->add(new DateFormat("Y-m-d"));
+        });
+
+        // Regra de validação para formato da data
+        //Simulação com erro-1
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('data', '199-08-23'));
+            $v->getRules()->add(new DateFormat("Y-m-d"));
+        });
+
+        // Regra de validação para formato da data
+        //Simulação com erro-2
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('data', '1994-23-23'));
+            $v->getRules()->add(new DateFormat("Y-m-d"));
+        });
+
+
+
+        // Executa a validação dos dados
+        $validator->execute();
+
+        // Verifica se foi gerado um erro
+        $this->assertEquals(2, $validator->getErrors()->count());
 
     }
 
