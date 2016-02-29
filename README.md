@@ -7,14 +7,14 @@ O validator é uma biblioteca para validação de dados que possui uma estrutura
 $validator = new Validator();
 
 // Regras para validação de nome
-$validator->addValidation(function(Validation $v) use($name) {
+$validator->getValidations()->add(function(Validation $v) use($name) {
   $v->setData(new Field('nome', $nome));
   $v->getRules()->add(new MaxLengthRule(50));
   $v->getRules()->add(new MinLengthRule(03));
 });
 
 // E-mail da pessoa
-$validator->addValidation(function(Validation $v) use ($email){
+$validator->getValidations()->add(function(Validation $v) use ($email){
   $v->getRules()->add(new EmailRule());
 });
 
