@@ -15,9 +15,9 @@ use Validator\Validation;
 class ValidationTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Testa a validação padrão de dados.
+     * Testa a validação para o tamanho minimo de strings.
      */
-    public function testValidation()
+    public function testMinLenghtValidation()
     {
         // Instanciamento da classe validadora
         $validator = new Validator();
@@ -33,5 +33,20 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
         // Verifica se foi gerado um erro
         $this->assertEquals(1, $validator->getErrors()->count());
+
+        // Instanciamento da classe validadora
+        $validator = new Validator();
+
+        // Regra de validação para nome
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('nome', 'Lucas'));
+            $v->getRules()->add(new MinLength(05));
+        });
+
+        // Executa a validação dos dados
+        $validator->execute();
+
+        // Verifica se foi gerado um erro
+        $this->assertEquals(0, $validator->getErrors()->count());
     }
 }
