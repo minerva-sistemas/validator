@@ -1,6 +1,7 @@
 <?php
 
 namespace Validator\Rules;
+
 use Validator\Exception\ValidationException;
 
 /**
@@ -10,7 +11,16 @@ use Validator\Exception\ValidationException;
  */
 class DateFormat implements RuleInterface
 {
+    /**
+     * Formato a ser verificado.
+     * @var string
+     */
     private $format;
+
+    /**
+     * Data a ser validada
+     * @var string
+     */
     private $data;
 
     /**
@@ -66,7 +76,10 @@ class DateFormat implements RuleInterface
         return $d && $d->format($format) == $date;
     }
 
-
+    /**
+     * Executa a validação.
+     * @throws ValidationException
+     */
     public function execute()
     {
         if(!$this->dateFormatValidate($this->getFormat(), $this->getData())) {

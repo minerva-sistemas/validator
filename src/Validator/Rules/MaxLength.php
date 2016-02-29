@@ -12,7 +12,16 @@ use Validator\Exception\ValidationException;
 class MaxLength implements RuleInterface
 {
 
+    /**
+     * String a ser validada.
+     * @var string
+     */
     private $data;
+
+    /**
+     * Tamanho máximo permitido.
+     * @var int
+     */
     private $maxLength;
 
     /**
@@ -56,6 +65,7 @@ class MaxLength implements RuleInterface
     }
 
     /**
+     * Executa a validação.
      * @throws ValidationException
      */
     public function execute()
