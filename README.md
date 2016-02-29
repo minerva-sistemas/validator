@@ -1,5 +1,7 @@
 ![](http://i.imgur.com/l1Fgbcd.png)
 
+![](https://poser.pugx.org/minerva-sistemas/silk-orm/license)
+
 O validator é uma biblioteca para validação de dados que possui uma estrutura consistente e flexível, que pode facilmente implementar novas estratégias para aderir a novos contextos de validação.
 
 ### Exemplo
