@@ -3,7 +3,7 @@
 namespace ValidatorTest;
 
 use Validator\Field;
-use Validator\Rules\MinLenght;
+use Validator\Rules\Email;
 use Validator\Rules\MinLength;
 use Validator\Validator;
 use Validator\Validation;
@@ -49,4 +49,35 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
         // Verifica se foi gerado um erro
         $this->assertEquals(0, $validator->getErrors()->count());
     }
+
+
+    public function testEmailValidation(){
+        // Instanciamento da classe validadora
+        $validator = new Validator();
+
+        // Regra de validação para nome
+        //Simulação com acerto
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('email', 'luanmaik1994@gmail.com'));
+            $v->getRules()->add(new Email());
+        });
+
+        // Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('email', 'luanmaik1994gmail.com'));
+            $v->getRules()->add(new Email());
+        });
+
+        // Executa a validação dos dados
+        $validator->execute();
+
+        // Verifica se foi gerado um erro
+        $this->assertEquals(1, $validator->getErrors()->count());
+
+    }
+
+
+
+
+
 }
