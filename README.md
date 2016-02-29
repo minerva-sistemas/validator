@@ -15,13 +15,12 @@ $validator->addValidation(function(Validation $v) use($name) {
 
 // E-mail da pessoa
 $validator->addValidation(function(Validation $v) use ($email){
-  $v->setData(new Field('email', $email));
-  $v->getRules()->add(new MinLenghtRule(05));
-  $v->getRules()->add(new MaxLenghtRule(99));
   $v->getRules()->add(new EmailRule());
 });
+
 // Executa a valudação
 $validator->execute();
+
 // Exibe os erros encontrados
 if($validator->getErrors()->count() > 0){
   $validator->getErrors()->map(function(ValidationError $error){
