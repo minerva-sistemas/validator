@@ -1,2 +1,2 @@
 # validator
-Sistema de validação flexível e robusto.
+Sistema para padronização de validações e multi-validações de dados.
