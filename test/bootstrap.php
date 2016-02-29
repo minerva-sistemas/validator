@@ -1,4 +1,4 @@
 <?php
 
 // Composer autoload
-include "../vendor/autoload.php";
+include __DIR__ . "/../vendor/autoload.php";
