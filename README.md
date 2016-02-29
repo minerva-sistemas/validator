@@ -1,2 +1,1 @@
-# validator
-Sistema para padronização de validações e multi-validações de dados.
+![](http://i.imgur.com/l1Fgbcd.png)
