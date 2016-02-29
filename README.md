@@ -4,28 +4,18 @@ O validator é uma biblioteca para validação de dados que possui uma estrutura
 
 ### Exemplo
 ```php
+// Instanciamento da classe validadora
 $validator = new Validator();
 
-// Regras para validação de nome
-$validator->getValidations()->add(function(Validation $v) use($name) {
-  $v->setData(new Field('nome', $nome));
-  $v->getRules()->add(new MaxLengthRule(50));
-  $v->getRules()->add(new MinLengthRule(03));
+// Regra de validação para nome
+$validator->getValidations()->add(function(Validation $v){
+    $v->setField(new Field('nome', 'Luca'));
+    $v->getRules()->add(new MinLength(05));
 });
 
-// E-mail da pessoa
-$validator->getValidations()->add(function(Validation $v) use ($email){
-  $v->getRules()->add(new EmailRule());
-});
-
-// Executa a valudação
+// Executa a validação dos dados
 $validator->execute();
 
-// Exibe os erros encontrados
-if($validator->getErrors()->count() > 0){
-  $validator->getErrors()->map(function(ValidationError $error){
-    echo $error->getData()->getName();
-    echo $error->getData()->getValue();
-    echo $error->getMessage();
-  });
+// Verifica se foi gerado um erro
+$this->assertEquals(1, $validator->getErrors()->count());
 ```
