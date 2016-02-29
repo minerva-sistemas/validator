@@ -1,0 +1,177 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "a4506e6758753c7b48d620daf7e49dd5",
+    "content-hash": "f087e8cc735a94309a28932463a7b7cc",
+    "packages": [
+        {
+            "name": "easyframework/collections",
+            "version": "v4.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/italolelis/collections.git",
+                "reference": "cddb1790b3540c369d0c897c9ad314effc7b3f07"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/italolelis/collections/zipball/cddb1790b3540c369d0c897c9ad314effc7b3f07",
+                "reference": "cddb1790b3540c369d0c897c9ad314effc7b3f07",
+                "shasum": ""
+            },
+            "require": {
+                "easyframework/generics": "~2.0",
+                "symfony/property-access": "~2.6"
+            },
+            "require-dev": {
+                "php": ">=5.4.0",
+                "phpunit/phpunit": "~4.5",
+                "symfony/var-dumper": "~2.6."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collections\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ítalo Lelis de Vietro",
+                    "email": "italolelis@lellysinformatica.com"
+                }
+            ],
+            "description": "Easy Framework Collection Component",
+            "homepage": "https://github.com/LellysInformatica/collections",
+            "keywords": [
+                "collection",
+                "easy",
+                "framework",
+                "generics"
+            ],
+            "time": "2015-12-14 11:20:28"
+        },
+        {
+            "name": "easyframework/generics",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/italolelis/generics.git",
+                "reference": "aa473480dc68b0daf9de4387a22a32cf254489e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/italolelis/generics/zipball/aa473480dc68b0daf9de4387a22a32cf254489e8",
+                "reference": "aa473480dc68b0daf9de4387a22a32cf254489e8",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ítalo Lelis de Vietro",
+                    "email": "italolelis@lellysinformatica.com"
+                }
+            ],
+            "description": "Easy Framework Generics Component",
+            "homepage": "http://easyframework.net/",
+            "keywords": [
+                "easy",
+                "framework",
+                "generics"
+            ],
+            "time": "2015-12-17 15:36:11"
+        },
+        {
+            "name": "symfony/property-access",
+            "version": "v2.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/property-access.git",
+                "reference": "9e672f852c2270eed936d5918e2090ddfee21d1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/9e672f852c2270eed936d5918e2090ddfee21d1e",
+                "reference": "9e672f852c2270eed936d5918e2090ddfee21d1e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\PropertyAccess\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony PropertyAccess Component",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "access",
+                "array",
+                "extraction",
+                "index",
+                "injection",
+                "object",
+                "property",
+                "property path",
+                "reflection"
+            ],
+            "time": "2016-02-13 09:21:29"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

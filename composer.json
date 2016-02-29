@@ -1,0 +1,25 @@
+{
+  "name": "minerva-sistemas/validator",
+  "description": "Biblioteca para padronização de validações e multi-validações de dados.",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Minerva Engenharia de Sistemas",
+      "email": "comercial@minervasistemas.com.br"
+    }
+  ],
+  "autoload":{
+    "psr-4": {
+      "Validator\\": "src/Validator"
+    }
+  },
+  "autoload-dev":{
+    "psr-4":{
+      "ValiatorTest\\": "test/Validation"
+    }
+  },
+  "require": {
+    "easyframework/collections": "v4.1.8"
+  }
+}
