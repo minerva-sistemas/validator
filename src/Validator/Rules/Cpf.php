@@ -84,16 +84,10 @@ use Validator\Validator;
          $data = $this->getData();
 
          $blackList = new ArrayList();
-         $blackList->add('00000000000');
-         $blackList->add('11111111111');
-         $blackList->add('22222222222');
-         $blackList->add('33333333333');
-         $blackList->add('44444444444');
-         $blackList->add('55555555555');
-         $blackList->add('77777777777');
-         $blackList->add('66666666666');
-         $blackList->add('88888888888');
-         $blackList->add('99999999999');
+         $blackList->addAll([
+             '00000000000', '11111111111', '22222222222', '33333333333', '44444444444',
+             '55555555555', '66666666666', '77777777777', '88888888888', '99999999999'
+         ]);
 
          $this->validator->getValidations()->add(function(Validation $v) use($data, $blackList) {
              $v->setField(new Field('cpf',$data));
