@@ -333,14 +333,14 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
         //Simulação com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('idade', "21a"));
-            $v->getRules()->add(new Float());
+            $v->getRules()->add(new Numeric());
         });
 
         // Regra de validação para formato de Numeric
         //Simulação com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('idade', "abc"));
-            $v->getRules()->add(new Float());
+            $v->getRules()->add(new Numeric());
         });
 
         // Executa a validação dos dados
