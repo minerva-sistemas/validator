@@ -1,6 +1,7 @@
 <?php
 
 namespace Validator\Rules;
+
 use Collections\ArrayList;
 use Validator\Exception\ValidationException;
 

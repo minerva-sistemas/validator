@@ -1,5 +1,7 @@
 <?php
+
 namespace Validator\Rules;
+
 use Collections\ArrayList;
 use Validator\Exception\ValidationException;
 use Validator\Field;
@@ -48,6 +50,11 @@ use Validator\Validator;
          $this->data = preg_replace('/[^0-9]/', '', (string) $data);
      }
 
+     /**
+      * Faz o cálculo responsável por definir se o digito
+      * verificador corresponde com o corpo do CPF.
+      * @return bool
+      */
      private function calculateNumbers()
      {
          for ($total_caracteres = 9; $total_caracteres < 11; $total_caracteres++)
@@ -67,8 +74,13 @@ use Validator\Validator;
          return true;
      }
 
-     private function startValidations(){
-
+     /**
+      * Verifica se o CPF é alguma das sequencias não permitidas
+      * ou se ele tem o tamanho minimo de 11 caracteres.
+      * @return void
+      */
+     private function startValidations()
+     {
          $data = $this->getData();
 
          $blackList = new ArrayList();
@@ -90,14 +102,17 @@ use Validator\Validator;
          });
 
          $this->validator->execute();
-
      }
 
+     /**
+      * Executa as validações.
+      * @throws ValidationException
+      */
      public function execute()
      {
          $this->startValidations();
          if($this->calculateNumbers() === false || $this->validator->getErrors()->count() > 0){
-             throw new ValidationException("Cpf inv�lido");
+             throw new ValidationException("Cpf inválido");
          }
      }
 
