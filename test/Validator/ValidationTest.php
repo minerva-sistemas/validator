@@ -24,25 +24,25 @@ use Validator\Validation;
 
 /**
  * Class ValidationTest
- * @author  Lucas A. de Araújo lucas@minervasistemas.com.br>
+ * @author  Lucas A. de AraÃºjo lucas@minervasistemas.com.br>
  */
 class ValidationTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Testa a validação para o tamanho minimo de strings.
+     * Testa a validaÃ§Ã£o para o tamanho minimo de strings.
      */
     public function testMinLenghtValidation()
     {
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para nome
+        // Regra de validaÃ§Ã£o para nome
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('nome', 'Luca'));
             $v->getRules()->add(new MinLength(05));
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
@@ -51,13 +51,13 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para nome
+        // Regra de validaÃ§Ã£o para nome
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('nome', 'Lucas'));
             $v->getRules()->add(new MinLength(05));
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
@@ -66,26 +66,26 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Testa a validação de Email.
+     * Testa a validaÃ§Ã£o de Email.
      */
     public function testEmailValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para nome
-        //Simulação com acerto
+        // Regra de validaÃ§Ã£o para nome
+        //SimulaÃ§Ã£o com acerto
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('email', 'luanmaik1994@gmail.com'));
             $v->getRules()->add(new Email());
         });
 
-        // Simulação com erro
+        // SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('email', 'luanmaik1994gmail.com'));
             $v->getRules()->add(new Email());
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
@@ -95,32 +95,32 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Testa a validação para o tamanho máximo de strings.
+     * Testa a validaÃ§Ã£o para o tamanho mÃ¡ximo de strings.
      */
     public function testMaxLengthValidator()
     {
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para nome simulando um erro
+        // Regra de validaÃ§Ã£o para nome simulando um erro
         $validator->getValidations()->add(function (Validation $v) {
             $v->setField(new Field('nome', 'Nathan Cambiriba do Nascimento'));
             $v->getRules()->add(new MaxLength(10));
         });
 
-        // Regra de validação para nome
+        // Regra de validaÃ§Ã£o para nome
         $validator->getValidations()->add(function (Validation $v) {
             $v->setField(new Field('nome', 'Nathan Cambiriba do Nascimento'));
             $v->getRules()->add(new MaxLength(10));
         });
 
-        // Regra de validação para nome
+        // Regra de validaÃ§Ã£o para nome
         $validator->getValidations()->add(function (Validation $v) {
             $v->setField(new Field('nome', 'Nathan Cambiriba do Nascimento'));
             $v->getRules()->add(new MaxLength(100));
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
@@ -130,34 +130,34 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Testa a validação de Formato de Data.
+     * Testa a validaÃ§Ã£o de Formato de Data.
      */
     public function testDateValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para formato da data
-        //Simulação com acerto
+        // Regra de validaÃ§Ã£o para formato da data
+        //SimulaÃ§Ã£o com acerto
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('data', '1994-08-23'));
             $v->getRules()->add(new DateFormat("Y-m-d"));
         });
 
-        // Regra de validação para formato da data
-        //Simulação com erro-1
+        // Regra de validaÃ§Ã£o para formato da data
+        //SimulaÃ§Ã£o com erro-1
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('data', '199-08-23'));
             $v->getRules()->add(new DateFormat("Y-m-d"));
         });
 
-        // Regra de validação para formato da data
-        //Simulação com erro-2
+        // Regra de validaÃ§Ã£o para formato da data
+        //SimulaÃ§Ã£o com erro-2
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('data', '1994-23-23'));
             $v->getRules()->add(new DateFormat("Y-m-d"));
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
@@ -166,14 +166,14 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Testa a validação de Sequencias não permitidas
+     * Testa a validaÃ§Ã£o de Sequencias nÃ£o permitidas
      */
     public function testBlackListValidation()
     {
         // Instanciamento da classe validatora
         $validator = new Validator();
 
-        // Regra de validação para sequencias não permitidas simulando um erro
+        // Regra de validaÃ§Ã£o para sequencias nÃ£o permitidas simulando um erro
         $validator->getValidations()->add(function(Validation $v){
             $blackList = new ArrayList();
             $blackList->add('aaaaaaaaaaaaa');
@@ -182,7 +182,7 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
             $v->getRules()->add(new BlackList($blackList));
         });
 
-        // Regra de validação para sequencias não permitidas sem simular o erro
+        // Regra de validaÃ§Ã£o para sequencias nÃ£o permitidas sem simular o erro
         $validator->getValidations()->add(function(Validation $v){
             $blackList = new ArrayList();
             $blackList->add('aaaaaaaaaaaaa');
@@ -191,7 +191,7 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
             $v->getRules()->add(new BlackList($blackList));
         });
 
-        // Executar a validação dos dados
+        // Executar a validaÃ§Ã£o dos dados
         $validator->execute();
 
         //verifica se foi gerado um erro
@@ -200,26 +200,26 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Testa a validação de cpf
+     * Testa a validaÃ§Ã£o de cpf
      */
     public function testCpfValidation()
     {
         //Instanciamento da classe validatora
         $validator = new Validator();
 
-        //Regra de validação do cpf simulando um erro
+        //Regra de validaÃ§Ã£o do cpf simulando um erro
         $validator->getValidations()->add(function (Validation $v) {
             $v->setField(new Field('cpf', '056.659.658-12'));
             $v->getRules()->add(new Cpf());
         });
 
-        //Regra de validação do cpf sem simular o erro
+        //Regra de validaÃ§Ã£o do cpf sem simular o erro
         $validator->getValidations()->add(function (Validation $v) {
             $v->setField(new Field('cpf', '894.434.123-06'));
             $v->getRules()->add(new Cpf());
         });
 
-        //Executar a validação do cpf
+        //Executar a validaÃ§Ã£o do cpf
         $validator->execute();
 
         //verifica se foi gerado um erro
@@ -227,34 +227,34 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Testa a validação de IP.
+     * Testa a validaÃ§Ã£o de IP.
      */
     public function testIPValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para formato de IP
-        //Simulação com acerto
+        // Regra de validaÃ§Ã£o para formato de IP
+        //SimulaÃ§Ã£o com acerto
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('ip', '255.254.189.133'));
             $v->getRules()->add(new IP());
         });
 
-        // Regra de validação para formato de IP
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de IP
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('ip', '270.254.189.133'));
             $v->getRules()->add(new IP());
         });
 
-        // Regra de validação para formato de IP
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de IP
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('ip', '200.284.189.133'));
             $v->getRules()->add(new IP());
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
@@ -265,34 +265,34 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Testa a validação de URL.
+     * Testa a validaÃ§Ã£o de URL.
      */
     public function testURLValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para formato de URL
-        //Simulação com acerto
+        // Regra de validaÃ§Ã£o para formato de URL
+        //SimulaÃ§Ã£o com acerto
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('caminho', 'http://localhost/meuprojeto/'));
             $v->getRules()->add(new URL());
         });
 
-        // Regra de validação para formato de URL
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de URL
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('caminho', 'htp~://localhost/meuprojeto/'));
             $v->getRules()->add(new URL());
         });
 
-        // Regra de validação para formato de URL
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de URL
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('caminho', 'http:<>localhost/meuprojeto/'));
             $v->getRules()->add(new URL());
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
@@ -302,34 +302,34 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Testa a validação de Inteiro
+     * Testa a validaÃ§Ã£o de Inteiro
      */
     public function testIntValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para formato de inteiro
-        //Simulação com acerto
+        // Regra de validaÃ§Ã£o para formato de inteiro
+        //SimulaÃ§Ã£o com acerto
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('numero', 23));
             $v->getRules()->add(new Int());
         });
 
-        // Regra de validação para formato de inteiro
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de inteiro
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('numero', '23'));
             $v->getRules()->add(new Int());
         });
 
-        // Regra de validação para formato de inteiro
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de inteiro
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('numero', '10'));
             $v->getRules()->add(new Int());
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
@@ -339,34 +339,34 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Testa a validação de Boolean
+     * Testa a validaÃ§Ã£o de Boolean
      */
     public function testBooleanValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para formato de Boolean
-        //Simulação com acerto
+        // Regra de validaÃ§Ã£o para formato de Boolean
+        //SimulaÃ§Ã£o com acerto
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('ativo', true));
             $v->getRules()->add(new Boolean());
         });
 
-        // Regra de validação para formato de Boolean
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de Boolean
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('ativo', 'true'));
             $v->getRules()->add(new Boolean());
         });
 
-        // Regra de validação para formato de Boolean
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de Boolean
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('ativo', 'false'));
             $v->getRules()->add(new Boolean());
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
@@ -377,34 +377,34 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Testa a validação de Float
+     * Testa a validaÃ§Ã£o de Float
      */
     public function testFloatValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para formato de Float
-        //Simulação com acerto
+        // Regra de validaÃ§Ã£o para formato de Float
+        //SimulaÃ§Ã£o com acerto
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('valor', 10.25));
             $v->getRules()->add(new Float());
         });
 
-        // Regra de validação para formato de Float
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de Float
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('valor', "10.25"));
             $v->getRules()->add(new Float());
         });
 
-        // Regra de validação para formato de Float
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de Float
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('valor', 10));
             $v->getRules()->add(new Float());
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
@@ -414,35 +414,35 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Testa a validação de Numeric
-     * A string só pode conter números
+     * Testa a validaÃ§Ã£o de Numeric
+     * A string sÃ³ pode conter nÃºmeros
      */
     public function testNumericValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para formato de Numeric
-        //Simulação com acerto
+        // Regra de validaÃ§Ã£o para formato de Numeric
+        //SimulaÃ§Ã£o com acerto
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('idade', "21"));
             $v->getRules()->add(new Numeric());
         });
 
-        // Regra de validação para formato de Numeric
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de Numeric
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('idade', "21a"));
             $v->getRules()->add(new Float());
         });
 
-        // Regra de validação para formato de Numeric
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de Numeric
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('idade', "abc"));
             $v->getRules()->add(new Float());
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
@@ -452,35 +452,35 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Testa a validação de Nome
-     * A string não pode conter numeros
+     * Testa a validaÃ§Ã£o de Nome
+     * A string nÃ£o pode conter numeros
      */
     public function testNameValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para formato de Nome
-        //Simulação com acerto
+        // Regra de validaÃ§Ã£o para formato de Nome
+        //SimulaÃ§Ã£o com acerto
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('nome', "LuanMaik"));
             $v->getRules()->add(new Name());
         });
 
-        // Regra de validação para formato de Nome
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de Nome
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('nome', "Lu4n Ma1k"));
             $v->getRules()->add(new Name());
         });
 
-        // Regra de validação para formato de Nome
-        //Simulação com erro
+        // Regra de validaÃ§Ã£o para formato de Nome
+        //SimulaÃ§Ã£o com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('nome', "luan maik 21"));
             $v->getRules()->add(new Name());
         });
 
-        // Executa a validação dos dados
+        // Executa a validaÃ§Ã£o dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro

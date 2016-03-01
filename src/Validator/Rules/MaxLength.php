@@ -19,13 +19,13 @@ class MaxLength implements RuleInterface
     private $data;
 
     /**
-     * Tamanho máximo permitido.
+     * Tamanho mÃ¡ximo permitido.
      * @var int
      */
     private $maxLength;
 
     /**
-     * Construtor da regra de validação.
+     * Construtor da regra de validaÃ§Ã£o.
      * @param $maxLength
      */
     public function __construct($maxLength)
@@ -65,13 +65,13 @@ class MaxLength implements RuleInterface
     }
 
     /**
-     * Executa a validação.
+     * Executa a validaÃ§Ã£o.
      * @throws ValidationException
      */
     public function execute()
     {
         if(strlen($this->data) > $this->maxLength){
-            throw new ValidationException("O tamanho máximo permitido é de {$this->getMaxLength()} caracteres.");
+            throw new ValidationException("O tamanho mÃ¡ximo permitido Ã© de {$this->getMaxLength()} caracteres.");
         }
     }
 }

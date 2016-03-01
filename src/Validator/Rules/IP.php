@@ -32,7 +32,7 @@ class IP implements RuleInterface
     public function execute()
     {
         if(!filter_var($this->getData(), FILTER_VALIDATE_IP)) {
-            throw new ValidationException("O formato do IP È inv·lido.");
+            throw new ValidationException("O formato do IP √© inv√°lido.");
         }
     }
 }

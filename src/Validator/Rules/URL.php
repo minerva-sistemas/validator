@@ -32,7 +32,7 @@ class URL implements RuleInterface
     public function execute()
     {
         if(!filter_var($this->getData(), FILTER_VALIDATE_URL)) {
-            throw new ValidationException("A URL informada n„o È valida.");
+            throw new ValidationException("A URL informada n√£o √© valida.");
         }
     }
 }

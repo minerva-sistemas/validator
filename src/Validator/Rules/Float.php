@@ -32,7 +32,7 @@ class Float implements RuleInterface
     public function execute()
     {
         if(!is_float($this->getData())) {
-            throw new ValidationException("O número informado não é do tipo decimal.");
+            throw new ValidationException("O nÃºmero informado nÃ£o Ã© do tipo decimal.");
         }
     }
 }

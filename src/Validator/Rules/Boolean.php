@@ -32,7 +32,7 @@ class Boolean implements RuleInterface
     public function execute()
     {
         if(!is_bool($this->getData())) {
-            throw new ValidationException("O número informado não é do tipo boleano.");
+            throw new ValidationException("O nÃºmero informado nÃ£o Ã© do tipo boleano.");
         }
     }
 }

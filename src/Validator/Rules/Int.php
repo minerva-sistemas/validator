@@ -32,7 +32,7 @@ class Int implements RuleInterface
     public function execute()
     {
         if(!is_int($this->getData())) {
-            throw new ValidationException("O número informado não é do tipo inteiro.");
+            throw new ValidationException("O nÃºmero informado nÃ£o Ã© do tipo inteiro.");
         }
     }
 }

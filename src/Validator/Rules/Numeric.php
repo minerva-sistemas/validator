@@ -32,7 +32,7 @@ class Numeric implements RuleInterface
     public function execute()
     {
         if(!ctype_digit($this->getData())) {
-            throw new ValidationException("Deve conter apenas números.");
+            throw new ValidationException("Deve conter apenas nÃºmeros.");
         }
     }
 }
