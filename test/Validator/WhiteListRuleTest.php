@@ -15,8 +15,12 @@ use Validator\Rules\WhiteList;
  */
 class WhiteListRuleTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Testa a validação de um valor por lista branca.
+     */
     public function testValidation()
     {
+        // Lista de nomes permitidos
         $allowedNames = new ArrayList();
         $allowedNames->add('Lucas Andrade de Araújo');
         $allowedNames->add('Matheus Andrade de Araújo');
