@@ -8,6 +8,16 @@ O validator é uma biblioteca para validação de dados que possui uma estrutura
 `composer require minerva-sistemas/silk-orm`
 
 ### Documentação
-https://github.com/minerva-sistemas/validator/wiki
-
-http://www.minervasistemas.com.br
+* [[Validator\Rules\MinLength]]
+* [[Validator\Rules\Email]]
+* [[Validator\Rules\Cpf]]
+* [[Validator\Rules\DateFormat]]
+* [[Validator\Rules\MaxLength]]
+* [[Validator\Rules\WhiteList]]
+* [[Validator\Rules\Boolean]]
+* [[Validator\Rules\Float]]
+* [[Validator\Rules\Int]]
+* [[Validator\Rules\IP]]
+* [[Validator\Rules\NoNumber]]
+* [[Validator\Rules\Numeric]]
+* [[Validator\Rules\URL]]
