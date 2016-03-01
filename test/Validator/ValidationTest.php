@@ -2,11 +2,15 @@
 
 namespace ValidatorTest;
 
+use Collections\ArrayList;
 use Validator\Field;
+use Validator\Rules\BlackList;
+use Validator\Rules\Cpf;
 use Validator\Rules\DateFormat;
 use Validator\Rules\Email;
 use Validator\Rules\MaxLength;
 use Validator\Rules\MinLength;
+use Validator\Rules\Sequence;
 use Validator\Validator;
 use Validator\Validation;
 
@@ -86,7 +90,7 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
         // Instanciamento da classe validadora
         $validator = new Validator();
 
-        // Regra de validação para nome
+        // Regra de validação para nome simulando um erro
         $validator->getValidations()->add(function (Validation $v) {
             $v->setField(new Field('nome', 'Nathan Cambiriba do Nascimento'));
             $v->getRules()->add(new MaxLength(10));
@@ -139,14 +143,73 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
             $v->getRules()->add(new DateFormat("Y-m-d"));
         });
 
-
-
         // Executa a validação dos dados
         $validator->execute();
 
         // Verifica se foi gerado um erro
         $this->assertEquals(2, $validator->getErrors()->count());
 
+    }
+
+    /**
+     * Testa a validação de Sequencias não permitidas
+     */
+    public function testBlackListValidation()
+    {
+        // Instanciamento da classe validatora
+        $validator = new Validator();
+
+        // Regra de validação para sequencias não permitidas simulando um erro
+        $validator->getValidations()->add(function(Validation $v){
+            $blackList = new ArrayList();
+            $blackList->add('aaaaaaaaaaaaa');
+
+            $v->setField(new Field('sequence','aaaaaaaaaaaaa'));
+            $v->getRules()->add(new BlackList($blackList));
+        });
+
+        // Regra de validação para sequencias não permitidas sem simular o erro
+        $validator->getValidations()->add(function(Validation $v){
+            $blackList = new ArrayList();
+            $blackList->add('aaaaaaaaaaaaa');
+
+            $v->setField(new Field('sequencia','Nathan'));
+            $v->getRules()->add(new BlackList($blackList));
+        });
+
+        // Executar a validação dos dados
+        $validator->execute();
+
+        //verifica se foi gerado um erro
+        $this->assertEquals(1,$validator->getErrors()->count());
+
+    }
+
+    /**
+     * Testa a validação de cpf
+     */
+    public function testCpfValidation()
+    {
+        //Instanciamento da classe validatora
+        $validator = new Validator();
+
+        //Regra de validação do cpf simulando um erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('cpf','056.659.658-12'));
+            $v->getRules()->add(new Cpf());
+        });
+
+        //Regra de validação do cpf sem simular o erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('cpf','894.434.123-06'));
+            $v->getRules()->add(new Cpf());
+        });
+
+        //Executar a validação do cpf
+        $validator->execute();
+
+        //verifica se foi gerado um erro
+        $this->assertEquals(1,$validator->getErrors()->count());
     }
 
 }
