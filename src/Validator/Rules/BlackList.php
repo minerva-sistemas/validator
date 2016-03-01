@@ -21,7 +21,10 @@ class BlackList implements RuleInterface
      */
     private $blackList;
 
-    public function __construct($blackList)
+    /**
+     * @param ArrayList $blackList
+     */
+    public function __construct(ArrayList $blackList)
     {
         $this->setBlackList($blackList);
     }
@@ -53,7 +56,7 @@ class BlackList implements RuleInterface
     /**
      * @param ArrayList $blackList
      */
-    public function setBlackList($blackList)
+    public function setBlackList(ArrayList $blackList)
     {
         $this->blackList = $blackList;
     }
@@ -64,7 +67,7 @@ class BlackList implements RuleInterface
     public function execute()
     {
         if($this->getBlackList()->contains($this->getData()))
-            throw new ValidationException("A sequencia {$this->getBlackList()} não é permitida.");
+            throw new ValidationException("A sequencia {$this->getData()} não é permitida.");
     }
 
 }
