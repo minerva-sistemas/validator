@@ -1,6 +1,7 @@
 <?php
 
 namespace Validator\Rules;
+
 use Validator\Exception\ValidationException;
 
 /**
@@ -10,8 +11,10 @@ use Validator\Exception\ValidationException;
  */
 class Float implements RuleInterface
 {
+    /**
+     * @var Dados a serem validados.
+     */
     private $data;
-
 
     /**
      * @return mixed
@@ -29,6 +32,10 @@ class Float implements RuleInterface
         $this->data = $data;
     }
 
+    /**
+     * Executa a regra de validação.
+     * @throws ValidationException
+     */
     public function execute()
     {
         if(!is_float($this->getData())) {

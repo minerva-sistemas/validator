@@ -79,7 +79,7 @@ class DateFormat implements RuleInterface
     }
 
     /**
-     * Executa a validação.
+     * Executa a regra de validação.
      * @throws ValidationException
      */
     public function execute()

@@ -1,6 +1,7 @@
 <?php
 
 namespace Validator\Rules;
+
 use Validator\Exception\ValidationException;
 
 /**
