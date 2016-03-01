@@ -6,10 +6,10 @@ use Validator\Exception\ValidationException;
 
 /**
  * Class WhiteList
- * @author  Lucas A. de Ara˙jo <lucas@minervasistemas.com.br>
+ * @author  Lucas A. de Ara√∫jo <lucas@minervasistemas.com.br>
  * @package Validator\Rules
  */
-class WhiteList implements  RuleInterface
+class WhiteList implements RuleInterface
 {
     /**
      * @var ArrayList
@@ -57,11 +57,11 @@ class WhiteList implements  RuleInterface
     }
 
     /**
-     * Executa a validaÁ„o da whitelist.
+     * Executa a valida√ß√£o da whitelist.
      */
     public function execute()
     {
         if(!$this->getWhiteList()->contains($this->getData()))
-            throw new ValidationException('O valor informado n„o est· presente na WhiteList.');
+            throw new ValidationException('O valor informado n√£o est√° presente na WhiteList.');
     }
 }
