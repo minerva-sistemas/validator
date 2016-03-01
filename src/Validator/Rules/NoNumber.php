@@ -4,11 +4,12 @@ namespace Validator\Rules;
 use Validator\Exception\ValidationException;
 
 /**
- * Class Name
+ * Class NoNumber
+ * Classe que verifica se a String passada contém números, caso houver, é gerado um Exception
  * @author  Luan Maik Cordeiro <luanmaik1994@gmail.com>
  * @package Validator\Rules
  */
-class Name implements RuleInterface
+class NoNumber implements RuleInterface
 {
     private $data;
 
