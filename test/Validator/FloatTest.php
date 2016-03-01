@@ -13,7 +13,7 @@ use Validator\Validation;
  * @author  Luan Maik Cordeiro <luanmaik1994@gmail.com>
  * @package ValidatorTest
  */
-class FloatTest
+class FloatTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Testa a validação de Float

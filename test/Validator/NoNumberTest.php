@@ -13,7 +13,7 @@ use Validator\Validation;
  * @author  Luan Maik Cordeiro <luanmaik1994@gmail.com>
  * @package ValidatorTest
  */
-class NoNumberTest
+class NoNumberTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Testa a validação de NoNumber
