@@ -13,7 +13,7 @@ use Validator\Rules\DateFormat;
 use Validator\Rules\Int;
 use Validator\Rules\Email;
 use Validator\Rules\Float;
-use Validator\Rules\Ip;
+use Validator\Rules\IP;
 use Validator\Rules\NoNumber;
 use Validator\Rules\Numeric;
 use Validator\Rules\URL;
@@ -201,8 +201,7 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(2, $validator->getErrors()->count());
 
     }
-
-
+    
 
     /**
      * Testa a validação de URL.
