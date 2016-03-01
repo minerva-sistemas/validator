@@ -4,20 +4,10 @@
 
 O validator é uma biblioteca para validação de dados que possui uma estrutura consistente e flexível, que pode facilmente implementar novas estratégias para aderir a novos contextos de validação.
 
-### Exemplo
-```php
-// Instanciamento da classe validadora
-$validator = new Validator();
+### Instalação
+`composer require minerva-sistemas/silk-orm`
 
-// Regra de validação para nome
-$validator->getValidations()->add(function(Validation $v){
-    $v->setField(new Field('nome', 'Luca'));
-    $v->getRules()->add(new MinLength(05));
-});
+### Documentação
+https://github.com/minerva-sistemas/validator/wiki
 
-// Executa a validação dos dados
-$validator->execute();
-
-// Verifica se foi gerado um erro
-$this->assertEquals(1, $validator->getErrors()->count());
-```
+http://www.minervasistemas.com.br
