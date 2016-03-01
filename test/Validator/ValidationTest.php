@@ -3,9 +3,16 @@
 namespace ValidatorTest;
 
 use Validator\Field;
+use Validator\Rules\Name;
+use Validator\Rules\Boolean;
 use Validator\Rules\DateFormat;
+use Validator\Rules\Int;
 use Validator\Rules\Email;
+use Validator\Rules\Float;
+use Validator\Rules\Ip;
 use Validator\Rules\MinLength;
+use Validator\Rules\Numeric;
+use Validator\Rules\URL;
 use Validator\Validator;
 use Validator\Validation;
 
@@ -82,7 +89,7 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Testa a validação de Data.
+     * Testa a validação de Formato de Data.
      */
     public function testDateValidation(){
         // Instanciamento da classe validadora
@@ -121,6 +128,267 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
 
+    /**
+     * Testa a validação de IP.
+     */
+    public function testIPValidation(){
+        // Instanciamento da classe validadora
+        $validator = new Validator();
+
+        // Regra de validação para formato de IP
+        //Simulação com acerto
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('ip', '255.254.189.133'));
+            $v->getRules()->add(new IP());
+        });
+
+        // Regra de validação para formato de IP
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('ip', '270.254.189.133'));
+            $v->getRules()->add(new IP());
+        });
+
+        // Regra de validação para formato de IP
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('ip', '200.284.189.133'));
+            $v->getRules()->add(new IP());
+        });
+
+        // Executa a validação dos dados
+        $validator->execute();
+
+        // Verifica se foi gerado um erro
+        $this->assertEquals(2, $validator->getErrors()->count());
+
+    }
+
+
+
+    /**
+     * Testa a validação de URL.
+     */
+    public function testURLValidation(){
+        // Instanciamento da classe validadora
+        $validator = new Validator();
+
+        // Regra de validação para formato de URL
+        //Simulação com acerto
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('caminho', 'http://localhost/meuprojeto/'));
+            $v->getRules()->add(new URL());
+        });
+
+        // Regra de validação para formato de URL
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('caminho', 'htp~://localhost/meuprojeto/'));
+            $v->getRules()->add(new URL());
+        });
+
+        // Regra de validação para formato de URL
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('caminho', 'http:<>localhost/meuprojeto/'));
+            $v->getRules()->add(new URL());
+        });
+
+        // Executa a validação dos dados
+        $validator->execute();
+
+        // Verifica se foi gerado um erro
+        $this->assertEquals(2, $validator->getErrors()->count());
+
+    }
+
+
+    /**
+     * Testa a validação de Inteiro
+     */
+    public function testIntValidation(){
+        // Instanciamento da classe validadora
+        $validator = new Validator();
+
+        // Regra de validação para formato de inteiro
+        //Simulação com acerto
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('numero', 23));
+            $v->getRules()->add(new Int());
+        });
+
+        // Regra de validação para formato de inteiro
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('numero', '23'));
+            $v->getRules()->add(new Int());
+        });
+
+        // Regra de validação para formato de inteiro
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('numero', '10'));
+            $v->getRules()->add(new Int());
+        });
+
+        // Executa a validação dos dados
+        $validator->execute();
+
+        // Verifica se foi gerado um erro
+        $this->assertEquals(2, $validator->getErrors()->count());
+
+    }
+
+
+    /**
+     * Testa a validação de Boolean
+     */
+    public function testBooleanValidation(){
+        // Instanciamento da classe validadora
+        $validator = new Validator();
+
+        // Regra de validação para formato de Boolean
+        //Simulação com acerto
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('ativo', true));
+            $v->getRules()->add(new Boolean());
+        });
+
+        // Regra de validação para formato de Boolean
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('ativo', 'true'));
+            $v->getRules()->add(new Boolean());
+        });
+
+        // Regra de validação para formato de Boolean
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('ativo', 'false'));
+            $v->getRules()->add(new Boolean());
+        });
+
+        // Executa a validação dos dados
+        $validator->execute();
+
+        // Verifica se foi gerado um erro
+        $this->assertEquals(2, $validator->getErrors()->count());
+
+    }
+
+
+
+    /**
+     * Testa a validação de Float
+     */
+    public function testFloatValidation(){
+        // Instanciamento da classe validadora
+        $validator = new Validator();
+
+        // Regra de validação para formato de Float
+        //Simulação com acerto
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('valor', 10.25));
+            $v->getRules()->add(new Float());
+        });
+
+        // Regra de validação para formato de Float
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('valor', "10.25"));
+            $v->getRules()->add(new Float());
+        });
+
+        // Regra de validação para formato de Float
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('valor', 10));
+            $v->getRules()->add(new Float());
+        });
+
+        // Executa a validação dos dados
+        $validator->execute();
+
+        // Verifica se foi gerado um erro
+        $this->assertEquals(2, $validator->getErrors()->count());
+
+    }
+
+
+    /**
+     * Testa a validação de Numeric
+     * A string só pode conter números
+     */
+    public function testNumericValidation(){
+        // Instanciamento da classe validadora
+        $validator = new Validator();
+
+        // Regra de validação para formato de Numeric
+        //Simulação com acerto
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('idade', "21"));
+            $v->getRules()->add(new Numeric());
+        });
+
+        // Regra de validação para formato de Numeric
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('idade', "21a"));
+            $v->getRules()->add(new Float());
+        });
+
+        // Regra de validação para formato de Numeric
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('idade', "abc"));
+            $v->getRules()->add(new Float());
+        });
+
+        // Executa a validação dos dados
+        $validator->execute();
+
+        // Verifica se foi gerado um erro
+        $this->assertEquals(2, $validator->getErrors()->count());
+
+    }
+
+
+    /**
+     * Testa a validação de Nome
+     * A string não pode conter numeros
+     */
+    public function testNameValidation(){
+        // Instanciamento da classe validadora
+        $validator = new Validator();
+
+        // Regra de validação para formato de Nome
+        //Simulação com acerto
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('nome', "LuanMaik"));
+            $v->getRules()->add(new Name());
+        });
+
+        // Regra de validação para formato de Nome
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('nome', "Lu4n Ma1k"));
+            $v->getRules()->add(new Name());
+        });
+
+        // Regra de validação para formato de Nome
+        //Simulação com erro
+        $validator->getValidations()->add(function(Validation $v){
+            $v->setField(new Field('nome', "luan maik 21"));
+            $v->getRules()->add(new Name());
+        });
+
+        // Executa a validação dos dados
+        $validator->execute();
+
+        // Verifica se foi gerado um erro
+        $this->assertEquals(2, $validator->getErrors()->count());
+
+    }
 
 
 }
