@@ -28,7 +28,7 @@ class MaxLength implements RuleInterface
      * Construtor da regra de validação.
      * @param $maxLength
      */
-    function __construct($maxLength)
+    public function __construct($maxLength)
     {
         $this->setMaxLength($maxLength);
     }
