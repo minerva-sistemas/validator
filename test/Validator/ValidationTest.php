@@ -133,7 +133,7 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
     /**
      * Testa a validação de Formato de Data.
      */
-    public function testDateValidation(){
+    public function testDateFormatValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
 
