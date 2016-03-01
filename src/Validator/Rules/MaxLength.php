@@ -9,7 +9,6 @@ use Validator\Exception\ValidationException;
  * @author  Nathan C.N <nathan@domusinfo.com.br>
  * @package Validator\Rules
  */
-
 class MaxLength implements RuleInterface
 {
 
