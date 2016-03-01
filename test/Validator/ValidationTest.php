@@ -14,6 +14,7 @@ use Validator\Rules\Int;
 use Validator\Rules\Email;
 use Validator\Rules\Float;
 use Validator\Rules\Ip;
+use Validator\Rules\NoNumber;
 use Validator\Rules\Numeric;
 use Validator\Rules\URL;
 use Validator\Rules\MaxLength;
@@ -452,10 +453,10 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Testa a validação de Nome
+     * Testa a validação de NoNumber
      * A string não pode conter numeros
      */
-    public function testNameValidation(){
+    public function testNoNumberValidation(){
         // Instanciamento da classe validadora
         $validator = new Validator();
 
@@ -463,21 +464,21 @@ class ValidationTest extends \PHPUnit_Framework_TestCase
         //Simulação com acerto
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('nome', "LuanMaik"));
-            $v->getRules()->add(new Name());
+            $v->getRules()->add(new NoNumber());
         });
 
         // Regra de validação para formato de Nome
         //Simulação com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('nome', "Lu4n Ma1k"));
-            $v->getRules()->add(new Name());
+            $v->getRules()->add(new NoNumber());
         });
 
         // Regra de validação para formato de Nome
         //Simulação com erro
         $validator->getValidations()->add(function(Validation $v){
             $v->setField(new Field('nome', "luan maik 21"));
-            $v->getRules()->add(new Name());
+            $v->getRules()->add(new NoNumber());
         });
 
         // Executa a validação dos dados
