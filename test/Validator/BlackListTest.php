@@ -16,6 +16,9 @@ use Validator\Validation;
  */
 class BlackListTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Testa a validação pela regra blacklist.
+     */
     public function testBlackList()
     {
         $blackList = new ArrayList();
