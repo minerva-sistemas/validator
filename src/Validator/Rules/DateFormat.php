@@ -9,6 +9,8 @@ use Validator\Exception\ValidationException;
  * @author  Luan Maik Cordeiro <luanmaik1994@gmail.com>
  * @package Validator\Rules
  */
+
+
 class DateFormat implements RuleInterface
 {
     /**
