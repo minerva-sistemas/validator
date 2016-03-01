@@ -10,7 +10,16 @@ use Validator\Exception\ValidationException;
  */
 class MinLength implements RuleInterface
 {
+    /**
+     * Tamanho mínimo permitido.
+     * @var int
+     */
     private $minLength;
+
+    /**
+     * Valor a ser verificado.
+     * @var string
+     */
     private $data;
 
     /**
@@ -54,6 +63,10 @@ class MinLength implements RuleInterface
         $this->data = $data;
     }
 
+    /**
+     * Executa a validação.
+     * @throws ValidationException
+     */
     public function execute()
     {
         if(strlen($this->getData()) < $this->getMinLength()) {

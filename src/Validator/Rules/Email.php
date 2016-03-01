@@ -1,6 +1,7 @@
 <?php
 
 namespace Validator\Rules;
+
 use Validator\Exception\ValidationException;
 
 /**
@@ -10,8 +11,10 @@ use Validator\Exception\ValidationException;
  */
 class Email implements RuleInterface
 {
+    /**
+     * @var mixed
+     */
     private $data;
-
 
     /**
      * @return mixed
@@ -29,6 +32,10 @@ class Email implements RuleInterface
         $this->data = $data;
     }
 
+    /**
+     * Executa a validação.
+     * @throws ValidationException
+     */
     public function execute()
     {
         if(filter_var($this->getData(), FILTER_VALIDATE_EMAIL)) {
