@@ -12,6 +12,7 @@ O validator é uma biblioteca para validação de dados que possui uma estrutura
 ```php
 $validator = new Validator();
 
+// Validação do campo nome do formulário.
 $validator->getValidations()->add(function (Validation $v) {
    $v->setField(new Field('nome', 'NathanCambiriba'));
    $v->getRules()->add(new MaxLength(10));
