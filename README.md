@@ -7,5 +7,4 @@ O validator é uma biblioteca para validação de dados que possui uma estrutura
 ### Instalação
 `composer require minerva-sistemas/validator`
 
-### Validações
-Abaixo segue a lista com as validações já implementadas.
+Para mais informações confira a [Documentação](https://github.com/minerva-sistemas/validator/wiki).
