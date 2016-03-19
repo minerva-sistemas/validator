@@ -131,7 +131,9 @@ class MimeTypes implements RuleInterface
             'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
         );
 
-        $ext = strtolower(array_pop(explode('.',$filename)));
+        $var = explode('.',$filename);
+        $ext = strtolower(array_pop($var));
+
         if (array_key_exists($ext, $mime_types)) {
             return $mime_types[$ext];
         }
